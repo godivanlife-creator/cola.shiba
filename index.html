@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cola 🐶</title>
- 
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=DM+Sans:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
- 
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
- 
+
 :root{
   --cream:#fdf8f2;
   --warm:#f0e6d6;
@@ -19,7 +19,7 @@
   --accent:#c8622a;
   --accent2:#e8893a;
 }
- 
+
 body{
   background:var(--cream);
   font-family:'DM Sans','Noto Sans JP',sans-serif;
@@ -28,7 +28,7 @@ body{
   align-items:center;
   min-height:100vh;
 }
- 
+
 /* ─── 語言列 ─── */
 .lang-bar{
   position:fixed;
@@ -54,7 +54,7 @@ body{
   color:var(--accent);
   font-weight:600;
 }
- 
+
 /* ─── HERO ─── */
 .hero{
   width:100%;
@@ -83,7 +83,7 @@ body{
   top:-10px;
   transform:rotate(20deg);
 }
- 
+
 .avatar-ring{
   width:124px;
   height:124px;
@@ -110,7 +110,7 @@ body{
   from{transform:scale(0.6);opacity:0;}
   to{transform:scale(1);opacity:1;}
 }
- 
+
 .hero-name{
   font-family:'Playfair Display',serif;
   font-size:2.6rem;
@@ -124,7 +124,7 @@ body{
   letter-spacing:0.08em;
   text-transform:uppercase;
 }
- 
+
 /* ─── 卡片區 ─── */
 .card-wrap{
   max-width:420px;
@@ -135,14 +135,14 @@ body{
   flex-direction:column;
   gap:12px;
 }
- 
+
 .card{
   background:#fff;
   padding:20px;
   border-radius:18px;
   box-shadow:0 4px 18px rgba(0,0,0,0.07);
 }
- 
+
 .warning{
   background:#fff3ec;
   color:#b84a10;
@@ -151,7 +151,7 @@ body{
   font-size:0.92rem;
   line-height:1.6;
 }
- 
+
 .info-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -181,7 +181,7 @@ body{
   padding:14px;
   margin-top:10px;
 }
- 
+
 .btn{
   display:flex;
   justify-content:center;
@@ -197,7 +197,7 @@ body{
 .btn:active{opacity:0.85;transform:scale(0.98);}
 .btn-primary{background:var(--accent);color:#fff;}
 .btn-outline{border:2px solid #ddd;color:#333;background:#fff;}
- 
+
 .gps-card{
   background:linear-gradient(135deg,#3a1a08,#7a4a1a);
   color:#fff;
@@ -216,7 +216,7 @@ body{
   width:100%;
   backdrop-filter:blur(4px);
 }
- 
+
 .fade{animation:fadeIn 0.3s ease;}
 @keyframes fadeIn{
   from{opacity:0;transform:translateY(8px);}
@@ -225,25 +225,25 @@ body{
 </style>
 </head>
 <body>
- 
+
 <div class="lang-bar">
   <button class="lang-btn active" onclick="setLang('zh',this)">中</button>
   <button class="lang-btn" onclick="setLang('en',this)">EN</button>
   <button class="lang-btn" onclick="setLang('ja',this)">日</button>
 </div>
- 
+
 <div class="hero">
   <div class="avatar-ring">
-    <span class="avatar-placeholder">🐶</span>
+    <img src="https://github.com/godivanlife-creator/cola.shiba/blob/main/IMG_0685.jpg?raw=true" alt="Cola">
   </div>
   <div class="hero-name">Cola</div>
   <div class="hero-sub">GodiVanLife Pet Tag</div>
 </div>
- 
+
 <div class="card-wrap" id="wrap">
- 
+
   <div class="card warning" id="t-warning"></div>
- 
+
   <div class="card">
     <div class="info-grid">
       <div class="info-item">
@@ -260,19 +260,19 @@ body{
       <div class="info-value" id="t-personality"></div>
     </div>
   </div>
- 
+
   <a class="btn btn-primary" href="tel:0912826302" id="t-call1"></a>
   <a class="btn btn-primary" style="background:#7a4a1a;" href="tel:0915659939" id="t-call2"></a>
- 
+
   <div class="gps-card">
     <p class="gps-desc" id="t-gps-desc"></p>
     <button class="btn btn-gps" id="gps-btn" onclick="sendGPS()"></button>
   </div>
- 
+
   <a class="btn btn-outline" href="https://www.instagram.com/cola_0228?igsh=MWZ0aDZnN2xsYmhpZg%3D%3D&utm_source=qr" target="_blank" id="t-ig"></a>
- 
+
 </div>
- 
+
 <script>
 const i18n={
   zh:{
@@ -324,9 +324,9 @@ const i18n={
     ig:"📸 インスタグラムを見る"
   }
 };
- 
+
 let lang='zh';
- 
+
 function applyLang(){
   const t=i18n[lang];
   document.getElementById("t-warning").innerText=t.warning;
@@ -342,7 +342,7 @@ function applyLang(){
   document.getElementById("gps-btn").innerText=t.gpsBtn;
   document.getElementById("t-ig").innerText=t.ig;
 }
- 
+
 function setLang(l,el){
   lang=l;
   applyLang();
@@ -353,9 +353,9 @@ function setLang(l,el){
   void wrap.offsetWidth;
   wrap.classList.add("fade");
 }
- 
+
 applyLang();
- 
+
 function sendGPS(){
   const btn=document.getElementById("gps-btn");
   const t=i18n[lang];
@@ -373,7 +373,7 @@ function sendGPS(){
     resetGPS();
   });
 }
- 
+
 function resetGPS(){
   const btn=document.getElementById("gps-btn");
   btn.disabled=false;
